@@ -1,0 +1,22 @@
+{
+  "name": "tennis-jquery-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZahidAliyev/Tennis-Jquery-Bootstrap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZahidAliyev/Tennis-Jquery-Bootstrap/issues"
+  },
+  "homepage": "https://github.com/ZahidAliyev/Tennis-Jquery-Bootstrap#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
+}
