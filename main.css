@@ -9928,12 +9928,17 @@ h3 {
     border-color: #dee2e6;
   }
 }
-html {
-  height: 100vh;
+.main_nav {
+  height: 10%;
 }
 
-ul {
-  height: 100px;
+.main_content {
+  height: 90%;
+}
+
+.game_container {
+  height: 80%;
+  width: 60%;
 }
 
 /*# sourceMappingURL=main.css.map */
