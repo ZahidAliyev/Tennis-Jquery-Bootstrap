@@ -1,0 +1,1 @@
+window.onload=function(){requestAnimationFrame((function e(){update(),drawAll(),requestAnimationFrame(e)})),canvas.addEventListener("mousemove",movePaddle),canvas.addEventListener("mousedown",menuClick),window.addEventListener("keydown",twoPlayerControlKeyDown),window.addEventListener("keyup",twoPlayerControlKeyUp),window.addEventListener("keydown",Pause)};

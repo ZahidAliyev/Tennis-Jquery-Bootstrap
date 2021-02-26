@@ -1,8 +1,10 @@
 const canvas = document.querySelector("#tennis");
 const context = canvas.getContext("2d");
 const container_for_canvas = document.querySelector('.game_container');
-canvas.width = container_for_canvas.offsetWidth;
-canvas.height = container_for_canvas.offsetHeight;
+let canvasContainerWidth = container_for_canvas.offsetWidth;
+let canvasContainerHeight = container_for_canvas.offsetHeight;
+canvas.width = canvasContainerWidth;
+canvas.height = canvasContainerHeight;
 
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;

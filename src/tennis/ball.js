@@ -3,11 +3,11 @@ const ball = {
   y: canvasHeight / 2,
   radius: 10,
   color: "red",
-  speed: 5,
+  speed: 7,
   xDirection: Math.random() < 0.5 ? 1 : -1,
   yDirection: Math.random() < 0.5 ? 1 : -1,
-  velocityX: 8,
-  velocityY: 8,
+  velocityX: 7,
+  velocityY: 7,
 
   Move: function() {
     this.x += this.velocityX;
