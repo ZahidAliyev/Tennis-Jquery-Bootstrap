@@ -1,16 +1,19 @@
-import {setOnePlayerToFalse} from './inputs';
+import {setOnePlayerToFalse, setLocalTwoPlayers} from './inputs';
 
 const winningScore = 3;
 
 export let leftPlayerWon = false;
 export let rightPlayerWon = false;
-export let gameOver = false;
 export let computerWon = false;
 export let playerWon = false;
+export let gameOver = false;
+
 
 export let lvl_1 = true;
 export let lvl_2 = false;
 export let lvl_3 = false;
+
+export const setGameOver = () => gameOver = false;
 
 function lvlChange() {
   if (lvl_1) {
@@ -75,7 +78,7 @@ function twoPlayersWinCondition() {
 
     player.score = 0;
     secondPlayer.score = 0;
-    localTwoPlayers = false;
+    setLocalTwoPlayers();
     gameOver = true;
   }
 

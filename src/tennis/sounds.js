@@ -1,3 +1,5 @@
+import { musicTurnOn } from "./inputs";
+
 const hit = new Audio("./tennis/sounds/hit.mp3");
 const tennisMusic = new Audio("./tennis/sounds/tennisMusic.mp3");
 

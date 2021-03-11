@@ -1,4 +1,4 @@
-import {pause, onePlayer} from './inputs';
+import {pause, onePlayer, localTwoPlayers} from './inputs';
 
 ball.velocityX *= ball.xDirection;
 ball.velocityY *= ball.yDirection;

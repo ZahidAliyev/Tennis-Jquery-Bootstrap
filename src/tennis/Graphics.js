@@ -1,5 +1,5 @@
 import {menu, pause, onePlayer, localTwoPlayers, options, } from './inputs';
-
+import { leftPlayerWon,rightPlayerWon,computerWon,playerWon, gameOver,lvl_1,lvl_2,lvl_3} from "./winning";
 function drawRectangle(topX, topY, width, height, color) {
   context.beginPath();
   context.fillStyle = color;

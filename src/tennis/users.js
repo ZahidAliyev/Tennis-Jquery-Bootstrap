@@ -1,3 +1,4 @@
+import {leftPlayerUpPressed, leftPlayerDownPressed,rightPlayerUpPressed,rightPlayerDownPressed} from './inputs';
 
 const player = {
   height: 100,

@@ -1,3 +1,4 @@
+import { setGameOver } from "./winning";
 export let menu = true;
 export let pause = false;
 export let onePlayer = false;
@@ -10,6 +11,7 @@ export let options = false;
 export let musicTurnOn = false;
 
 export const setOnePlayerToFalse = () => onePlayer = false;
+export const setLocalTwoPlayers = () => localTwoPlayers = false;
 
 
 function keyPressTrigger(e, leftUpKey, leftDownKey, rightUpKey, rightDownKey, isPressed) {
@@ -90,7 +92,7 @@ function menuClick(e) {
         if (clickCoordinate(e, 10, 12, 3.8, 6, 5, 6)) {
             menu = true;
             resetAll();
-            gameOver = false;
+            setGameOver();
         };
     }
     // IN OPTIONS
