@@ -1,3 +1,17 @@
+import {setOnePlayerToFalse} from './inputs';
+
+const winningScore = 3;
+
+export let leftPlayerWon = false;
+export let rightPlayerWon = false;
+export let gameOver = false;
+export let computerWon = false;
+export let playerWon = false;
+
+export let lvl_1 = true;
+export let lvl_2 = false;
+export let lvl_3 = false;
+
 function lvlChange() {
   if (lvl_1) {
     comp.computerLevel = 0.05;
@@ -34,14 +48,14 @@ function onePlayerWinCondition() {
         resetOnePlayerMode();
         playerWon = true;
         computerWon = false;
-        onePlayer = false;
+        setOnePlayerToFalse();
         gameOver = true;
       }
     } else {
       lvl_1 = true;
       computerWon = true;
       playerWon = false;
-      onePlayer = false;
+      setOnePlayerToFalse();
       gameOver = true;
     }
     resetOnePlayerMode();
@@ -65,4 +79,13 @@ function twoPlayersWinCondition() {
     gameOver = true;
   }
 
+}
+
+function resetAll() {
+  computerWon = false;
+  lvl_2 = false;
+  lvl_3 = false;
+  leftPlayerWon = false;
+  rightPlayerWon = false;
+  playerWon = false;
 }

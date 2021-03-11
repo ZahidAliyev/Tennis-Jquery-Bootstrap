@@ -1,3 +1,17 @@
+export let menu = true;
+export let pause = false;
+export let onePlayer = false;
+export let localTwoPlayers = false;
+export let leftPlayerUpPressed = false;
+export let leftPlayerDownPressed = false;
+export let rightPlayerUpPressed = false;
+export let rightPlayerDownPressed = false;
+export let options = false;
+export let musicTurnOn = false;
+
+export const setOnePlayerToFalse = () => onePlayer = false;
+
+
 function keyPressTrigger(e, leftUpKey, leftDownKey, rightUpKey, rightDownKey, isPressed) {
     if(e.code === leftUpKey) {
         leftPlayerUpPressed = isPressed;

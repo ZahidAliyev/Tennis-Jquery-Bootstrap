@@ -1,3 +1,5 @@
+import {pause, onePlayer} from './inputs';
+
 ball.velocityX *= ball.xDirection;
 ball.velocityY *= ball.yDirection;
 
@@ -14,14 +16,7 @@ function resetOnePlayerMode() {
   lvlChange();
 }
 
-function resetAll() {
-  computerWon = false;
-  lvl_2 = false;
-  lvl_3 = false;
-  leftPlayerWon = false;
-  rightPlayerWon = false;
-  playerWon = false;
-}
+
 
 function update() {
   //-----------------------if one player True. 1 PLAYER MODE
