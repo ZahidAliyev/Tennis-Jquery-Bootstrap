@@ -1,13 +1,3 @@
-// function twoPlayersLocalMoveWithKeys(up, down, y) {
-//   console.log(up);
-//   console.log(down);
-//   if(up) {
-//     y += 30;
-//   }
-//   if(down) {
-//     y -= 30;
-//   }
-// }
 
 const player = {
   height: 100,

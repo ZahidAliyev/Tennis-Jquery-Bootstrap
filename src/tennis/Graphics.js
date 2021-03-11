@@ -1,3 +1,5 @@
+import {menu, pause, onePlayer, localTwoPlayers, options, } from './inputs';
+
 function drawRectangle(topX, topY, width, height, color) {
   context.beginPath();
   context.fillStyle = color;
