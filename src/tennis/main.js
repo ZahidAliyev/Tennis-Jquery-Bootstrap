@@ -1,3 +1,7 @@
+import { movePaddle, menuClick, twoPlayerControlKeyDown, twoPlayerControlKeyUp, Pause} from "./inputs";
+import { update } from "./update";
+import { drawAll } from "./Graphics";
+import { canvas } from "./canvas";
 window.onload = function() {
   function loop() {
     game();

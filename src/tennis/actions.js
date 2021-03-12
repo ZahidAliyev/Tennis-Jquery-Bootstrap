@@ -1,3 +1,10 @@
+import { ball } from "./ball";
+import { comp, player, secondPlayer } from "./users";
+import { canvasWidth } from "./canvas";
+import { hit } from "./sounds";
+import { resetInGame } from "./update";
+
+
 function collision(b, u) {
   u.top = u.y;
   u.bottom = u.y + u.height;
@@ -14,7 +21,7 @@ function collision(b, u) {
   );
 }
 
-function onePlayerModeActions() {
+export function onePlayerModeActions() {
   ball.Move();
   comp.move();
   //--------Does ball collide with Player or Computer ?
@@ -28,18 +35,17 @@ function onePlayerModeActions() {
 
     let direction = ball.x < canvasWidth / 2 ? 1 : -1;
 
-    ball.velocityX = ball.speed * Math.cos(angleRad) * direction;
-    ball.velocityY = ball.speed * Math.sin(angleRad);
+    angleChangeFromHit(angleRad, direction);
 
-    ball.speed += 0.4;
+    ball.speedAddAfterHit(0.4);
   }
 //--------------------------- GOAL
   if (ball.x - ball.radius < 0) {
-    comp.score += 1;
+    comp.addScore(1);
     console.log("onePlayerModeActions -> comp.score", comp.score)
     resetInGame();
   } else if (ball.x + ball.radius > canvasWidth) {
-    player.score += 1;
+    player.addScore(1);
     console.log("onePlayerModeActions -> player.score", player.score)
     resetInGame();
   }
@@ -47,7 +53,7 @@ function onePlayerModeActions() {
 
 // -------------------------TWO PLAYERS--------------
 
-function twoPlayersModeActions() {
+export function twoPlayersModeActions() {
   
   ball.Move();
   player.keyMove();
@@ -64,18 +70,17 @@ function twoPlayersModeActions() {
 
     let direction = ball.x < canvasWidth / 2 ? 1 : -1;
 
-    ball.velocityX = ball.speed * Math.cos(angleRad) * direction;
-    ball.velocityY = ball.speed * Math.sin(angleRad);
+    angleChangeFromHit(angleRad, direction);
 
-    ball.speed += 0.4;
+    ball.speedAddAfterHit(0.4);
   }
 //--------------------------- GOAL
   if (ball.x - ball.radius < 0) {
-    secondPlayer.score += 1;
+    secondPlayer.addScore(1);
     console.log("onePlayerModeActions -> comp.score", secondPlayer.score)
     resetInGame();
   } else if (ball.x + ball.radius > canvasWidth) {
-    player.score += 1;
+    player.addScore(1);
     console.log("onePlayerModeActions -> player.score", player.score)
     resetInGame();
   }

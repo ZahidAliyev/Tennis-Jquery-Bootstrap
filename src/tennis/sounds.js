@@ -1,16 +1,16 @@
 import { musicTurnOn } from "./inputs";
 
-const hit = new Audio("./tennis/sounds/hit.mp3");
+export const hit = new Audio("./tennis/sounds/hit.mp3");
 const tennisMusic = new Audio("./tennis/sounds/tennisMusic.mp3");
 
-var onOrOff = "Off";
+export let onOrOff = "Off";
 
 tennisMusic.volume = 0.1;
 
-var soundsOn = true;
-var soundsOnOrOffText = "Off";
+export let soundsOn = true;
+export let soundsOnOrOffText = "Off";
 
-function musicTurnOnOff() {
+export function musicTurnOnOff() {
   if (musicTurnOn) {
     tennisMusic.play();
     onOrOff = "Off";
@@ -19,7 +19,7 @@ function musicTurnOnOff() {
     onOrOff = "On";
   }
 }
-function soundsTurnOnOff() {
+export function soundsTurnOnOff() {
     if (soundsOn) {
         hit.volume = 0.2;
         soundsOnOrOffText = "Off";

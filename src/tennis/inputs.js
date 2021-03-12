@@ -1,4 +1,8 @@
-import { setGameOver } from "./winning";
+import { setGameOver, resetAll } from "./winning";
+import { canvasWidth, canvasHeight } from "./canvas";
+import { player } from "./users";
+import { soundsOn } from "./sounds";
+
 export let menu = true;
 export let pause = false;
 export let onePlayer = false;
@@ -35,27 +39,26 @@ function clickCoordinate(e, widthDivision, heightDivision, leftX, rightX, topY, 
     e.offsetY >= (canvasHeight / heightDivision) * topY &&
     e.offsetY <= (canvasHeight / heightDivision) * bottomY)
 }
-function movePaddle(e) {
+export function movePaddle(e) {
     if(onePlayer) {
         player.mouseMove(e);
     }
     
 }
-function twoPlayerControlKeyDown(e) {
+export function twoPlayerControlKeyDown(e) {
     if(localTwoPlayers) {
-        console.log(e.code);
         keyPressTrigger(e, "KeyW", "KeyS", "Numpad8", "Numpad2", true);
     }
 }
 
-function twoPlayerControlKeyUp(e) {
+export function twoPlayerControlKeyUp(e) {
     if(localTwoPlayers) {
         keyPressTrigger(e, "KeyW", "KeyS", "Numpad8", "Numpad2", false);
 
     }
 }
 
-function Pause(e) {
+export function Pause(e) {
     if(e.code === "KeyP") {
         if(pause) {
             pause = false;
@@ -66,7 +69,7 @@ function Pause(e) {
     };
 }
 
-function menuClick(e) {
+export function menuClick(e) {
     if(menu) {
         // ONE PLAYER
         if (clickCoordinate(e, 10, 12, 4, 6, 3, 4)) {

@@ -1,12 +1,19 @@
 import {leftPlayerUpPressed, leftPlayerDownPressed,rightPlayerUpPressed,rightPlayerDownPressed} from './inputs';
-
-const player = {
+import { canvasWidth, canvasHeight, canvas } from "./canvas";
+import {ball} from './ball';
+export const player = {
   height: 100,
   x: 0,
   y: canvasHeight / 2 - 100 / 2,
   width: 10,
   color: "white",
   score: 0,
+  setScore: function(num) {
+    this.score = num;
+  },
+  addScore: function(num) {
+    this.score =+ num;
+  },
   mouseMove: function(e) {
     let rect = canvas.getBoundingClientRect();
     this.y = e.clientY - rect.top - this.height / 2;
@@ -29,13 +36,19 @@ const player = {
   }
 };
 
-const secondPlayer = {
+export const secondPlayer = {
   height: 100,
   x: canvasWidth - 10,
   y: canvasHeight / 2 - 100 / 2,
   width: 10,
   color: "white",
   score: 0,
+  setScore: function(score) {
+    score = score;
+  },
+  addScore: function(num) {
+    this.score =+ num;
+  },
   keyMove: function() {
     // twoPlayersLocalMoveWithKeys(rightPlayerUpPressed, rightPlayerDownPressed, this.y);
     if (this.y < 0) {
@@ -53,7 +66,7 @@ const secondPlayer = {
   }
 };
 
-const comp = {
+export const comp = {
   height: 100,
   x: canvasWidth - 10,
   y: canvasHeight / 2 - 100 / 2,
@@ -61,7 +74,15 @@ const comp = {
   color: "white",
   score: 0,
   computerLevel: 0.05,
-
+  setComputerLevel: function(levelSpeedMultiplier) {
+    this.computerLevel = levelSpeedMultiplier;
+  },
+  setScore: function(num) {
+    this.score = num;
+  },
+  addScore: function(num) {
+    this.score =+ num;
+  },
   move: function() {
     if (this.y < 0) {
       this.y = 0;

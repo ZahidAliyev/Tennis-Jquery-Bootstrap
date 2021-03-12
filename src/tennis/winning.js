@@ -1,4 +1,7 @@
 import {setOnePlayerToFalse, setLocalTwoPlayers} from './inputs';
+import { comp } from "./users";
+import { player, secondPlayer } from "./users";
+import { resetOnePlayerMode } from "./update";
 
 const winningScore = 3;
 
@@ -15,17 +18,17 @@ export let lvl_3 = false;
 
 export const setGameOver = () => gameOver = false;
 
-function lvlChange() {
+export function lvlChange() {
   if (lvl_1) {
-    comp.computerLevel = 0.05;
+    comp.setComputerLevel( 0.05);
   } else if (lvl_2) {
-    comp.computerLevel = 0.25;
+    comp.setComputerLevel(0.25);
   } else if (lvl_3) {
-    comp.computerLevel = 0.5;
+    comp.setComputerLevel(0.5);
   }
 }
 
-function onePlayerWinCondition() {
+export function onePlayerWinCondition() {
   if (player.score === winningScore || comp.score === winningScore) {
     // ============ IF PLAYER WON 1 LVL
     if (player.score === winningScore) {
@@ -65,7 +68,7 @@ function onePlayerWinCondition() {
   }
 }
 
-function twoPlayersWinCondition() {
+export function twoPlayersWinCondition() {
   if (player.score === winningScore || secondPlayer.score === winningScore) {
     // ============ IF PLAYER WON 1 LVL
     if (player.score === winningScore) {
@@ -77,14 +80,14 @@ function twoPlayersWinCondition() {
     }
 
     player.score = 0;
-    secondPlayer.score = 0;
+    secondPlayer.setScore(0);
     setLocalTwoPlayers();
     gameOver = true;
   }
 
 }
 
-function resetAll() {
+export function resetAll() {
   computerWon = false;
   lvl_2 = false;
   lvl_3 = false;
