@@ -18,7 +18,7 @@ function resetOnePlayerMode() {
 
 
 
-function update() {
+export function update() {
   //-----------------------if one player True. 1 PLAYER MODE
   if (onePlayer) {
     if(pause) {
