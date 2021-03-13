@@ -1,18 +1,22 @@
 import {pause, onePlayer, localTwoPlayers} from './inputs';
+import { ball } from "./ball";
+import {comp, player} from './users';
+import { onePlayerModeActions, twoPlayersModeActions } from "./actions";
+import { onePlayerWinCondition,twoPlayersWinCondition } from "./winning";
+import { musicTurnOnOff, soundsTurnOnOff } from "./sounds";
 
-ball.velocityX *= ball.xDirection;
-ball.velocityY *= ball.yDirection;
+ball.setBallDirectionToRandom();
 
-function resetInGame() {
-  ball.x = canvasWidth / 2;
-  ball.y = canvasHeight / 2;
-  ball.velocityX = -ball.velocityX;
-  ball.speed = getRandomIntInclusive(6, 8);
+export function resetInGame() {
+  ball.ballresetBallXPosition();
+  ball.resetBallYPosition();
+  ball.changeBallXDirection();
+  ball.makeBallRandomSpeed(6, 8);
 }
-function resetOnePlayerMode() {
-  comp.score = 0;
-  player.score = 0;
-  ball.speed = 7;
+export function resetOnePlayerMode() {
+  comp.setScore(0);
+  player.setScore(0);
+  ball.setSpeed(7);
   lvlChange();
 }
 

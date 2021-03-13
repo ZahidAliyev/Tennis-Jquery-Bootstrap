@@ -1,6 +1,11 @@
-import {menu, pause, onePlayer, localTwoPlayers, options, } from './inputs';
+import {menu, pause, onePlayer, localTwoPlayers, options} from './inputs';
 import { leftPlayerWon,rightPlayerWon,computerWon,playerWon, gameOver,lvl_1,lvl_2,lvl_3} from "./winning";
-function drawRectangle(topX, topY, width, height, color) {
+import { context, canvas } from "./canvas";
+import { player, comp, secondPlayer } from "./users";
+import { ball } from "./ball";
+import { soundsOnOrOffText, onOrOff } from "./sounds";
+
+export function drawRectangle(topX, topY, width, height, color) {
   context.beginPath();
   context.fillStyle = color;
   context.fillRect(topX, topY, width, height);
@@ -9,7 +14,6 @@ function drawRectangle(topX, topY, width, height, color) {
 }
 function drawCircle(x, y, radius, color) {
   context.beginPath();
-
   context.arc(x, y, radius, 0, Math.PI * 2, true);
   context.fillStyle = color;
   context.fill();
@@ -20,7 +24,7 @@ function drawText(text, x, y, color) {
   
   context.fillText(text, x, y);
 }
-function drawAll() {
+export function drawAll() {
   //1 player gameplay
   if(onePlayer) {
     context.font = "60px fantasy";
