@@ -2,21 +2,21 @@ import {pause, onePlayer, localTwoPlayers} from './inputs';
 import { ball } from "./ball";
 import {comp, player} from './users';
 import { onePlayerModeActions, twoPlayersModeActions } from "./actions";
-import { onePlayerWinCondition,twoPlayersWinCondition } from "./winning";
+import { onePlayerWinCondition,twoPlayersWinCondition, lvlChange } from "./winning";
 import { musicTurnOnOff, soundsTurnOnOff } from "./sounds";
 
 ball.setBallDirectionToRandom();
 
 export function resetInGame() {
-  ball.ballresetBallXPosition();
+  ball.resetBallXPosition();
   ball.resetBallYPosition();
   ball.changeBallXDirection();
-  ball.makeBallRandomSpeed(6, 8);
+  ball.makeBallRandomSpeed(4, 6);
 }
 export function resetOnePlayerMode() {
   comp.setScore(0);
   player.setScore(0);
-  ball.setSpeed(7);
+  ball.setSpeed(4);
   lvlChange();
 }
 

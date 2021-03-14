@@ -12,7 +12,7 @@ export const player = {
     this.score = num;
   },
   addScore: function(num) {
-    this.score =+ num;
+    this.score += num;
   },
   mouseMove: function(e) {
     let rect = canvas.getBoundingClientRect();
@@ -44,10 +44,10 @@ export const secondPlayer = {
   color: "white",
   score: 0,
   setScore: function(score) {
-    score = score;
+    this.score = score;
   },
   addScore: function(num) {
-    this.score =+ num;
+    this.score += num;
   },
   keyMove: function() {
     // twoPlayersLocalMoveWithKeys(rightPlayerUpPressed, rightPlayerDownPressed, this.y);
@@ -81,7 +81,7 @@ export const comp = {
     this.score = num;
   },
   addScore: function(num) {
-    this.score =+ num;
+    this.score += num;
   },
   move: function() {
     if (this.y < 0) {

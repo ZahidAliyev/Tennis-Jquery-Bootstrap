@@ -1,4 +1,4 @@
-import { setGameOver, resetAll } from "./winning";
+import { setGameOver, resetAll, gameOver } from "./winning";
 import { canvasWidth, canvasHeight } from "./canvas";
 import { player } from "./users";
 import { soundsOn } from "./sounds";

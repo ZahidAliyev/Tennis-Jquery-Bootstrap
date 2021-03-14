@@ -1,8 +1,8 @@
 import { musicTurnOn } from "./inputs";
 
-export const hit = new Audio("./tennis/sounds/hit.mp3");
-const tennisMusic = new Audio("./tennis/sounds/tennisMusic.mp3");
-
+export const hit = new Audio("../src/tennis/sounds/hit.mp3");
+const tennisMusic = new Audio("../src/tennis/sounds/tennisMusic.mp3");
+export const playHit = () => hit.play();
 export let onOrOff = "Off";
 
 tennisMusic.volume = 0.1;

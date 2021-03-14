@@ -1,7 +1,7 @@
 import { ball } from "./ball";
 import { comp, player, secondPlayer } from "./users";
 import { canvasWidth } from "./canvas";
-import { hit } from "./sounds";
+import { hit, playHit } from "./sounds";
 import { resetInGame } from "./update";
 
 
@@ -28,14 +28,15 @@ export function onePlayerModeActions() {
   let user = ball.x < canvasWidth / 2 ? player : comp;
   //---------If ball collide with User
   if (collision(ball, user)) {
-    hit.play();
+    playHit();
+    console.log(hit);
     let collidePoint =
       (ball.y - (user.y + user.height / 2)) / (user.height / 2);
     let angleRad = (collidePoint * Math.PI) / 4;
 
     let direction = ball.x < canvasWidth / 2 ? 1 : -1;
 
-    angleChangeFromHit(angleRad, direction);
+    ball.angleChangeFromHit(angleRad, direction);
 
     ball.speedAddAfterHit(0.4);
   }
@@ -63,14 +64,14 @@ export function twoPlayersModeActions() {
   let user = ball.x < canvasWidth / 2 ? player : secondPlayer;
   //---------If ball collide with User
   if (collision(ball, user)) {
-    hit.play();
+    playHit();
     let collidePoint =
       (ball.y - (user.y + user.height / 2)) / (user.height / 2);
     let angleRad = (collidePoint * Math.PI) / 4;
 
     let direction = ball.x < canvasWidth / 2 ? 1 : -1;
 
-    angleChangeFromHit(angleRad, direction);
+    ball. angleChangeFromHit(angleRad, direction);
 
     ball.speedAddAfterHit(0.4);
   }
