@@ -15,7 +15,7 @@ export let options = false;
 export let musicTurnOn = false;
 
 export const setOnePlayerToFalse = () => onePlayer = false;
-export const setLocalTwoPlayers = () => localTwoPlayers = false;
+export const setLocalTwoPlayersFalse = () => localTwoPlayers = false;
 
 
 function keyPressTrigger(e, leftUpKey, leftDownKey, rightUpKey, rightDownKey, isPressed) {

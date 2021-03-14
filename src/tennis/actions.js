@@ -43,11 +43,9 @@ export function onePlayerModeActions() {
 //--------------------------- GOAL
   if (ball.x - ball.radius < 0) {
     comp.addScore(1);
-    console.log("onePlayerModeActions -> comp.score", comp.score)
     resetInGame();
   } else if (ball.x + ball.radius > canvasWidth) {
     player.addScore(1);
-    console.log("onePlayerModeActions -> player.score", player.score)
     resetInGame();
   }
 }
@@ -78,11 +76,9 @@ export function twoPlayersModeActions() {
 //--------------------------- GOAL
   if (ball.x - ball.radius < 0) {
     secondPlayer.addScore(1);
-    console.log("onePlayerModeActions -> comp.score", secondPlayer.score)
     resetInGame();
   } else if (ball.x + ball.radius > canvasWidth) {
     player.addScore(1);
-    console.log("onePlayerModeActions -> player.score", player.score)
     resetInGame();
   }
 }

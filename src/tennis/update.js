@@ -11,12 +11,11 @@ export function resetInGame() {
   ball.resetBallXPosition();
   ball.resetBallYPosition();
   ball.changeBallXDirection();
-  ball.makeBallRandomSpeed(4, 6);
+  ball.setSpeed(5);
 }
 export function resetOnePlayerMode() {
   comp.setScore(0);
   player.setScore(0);
-  ball.setSpeed(4);
   lvlChange();
 }
 

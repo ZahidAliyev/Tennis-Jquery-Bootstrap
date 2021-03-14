@@ -1,4 +1,4 @@
-import {setOnePlayerToFalse, setLocalTwoPlayers} from './inputs';
+import {setOnePlayerToFalse, setLocalTwoPlayersFalse} from './inputs';
 import { comp } from "./users";
 import { player, secondPlayer } from "./users";
 import { resetOnePlayerMode } from "./update";
@@ -33,13 +33,11 @@ export function onePlayerWinCondition() {
     // ============ IF PLAYER WON 1 LVL
     if (player.score === winningScore) {
       if (lvl_1) {
-        console.log("update -> this.computerLevel", comp.computerLevel);
         lvl_1 = false;
         lvl_2 = true;
         resetOnePlayerMode();
       } else if (lvl_2) {
         // ============= IF PLAYER WON 2 LVL
-        console.log("update -> this.computerLevel", comp.computerLevel);
         lvl_2 = false;
 
         lvl_3 = true;
@@ -48,7 +46,6 @@ export function onePlayerWinCondition() {
       } else if (lvl_3) {
         // ============= IF PLAYER WON 2 LVL
 
-        console.log("update -> this.computerLevel", comp.computerLevel);
 
         lvl_1 = true;
         resetOnePlayerMode();
@@ -81,7 +78,7 @@ export function twoPlayersWinCondition() {
 
     player.score = 0;
     secondPlayer.setScore(0);
-    setLocalTwoPlayers();
+    setLocalTwoPlayersFalse();
     gameOver = true;
   }
 
