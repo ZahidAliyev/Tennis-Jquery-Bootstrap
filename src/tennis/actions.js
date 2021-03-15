@@ -2,7 +2,16 @@ import { ball } from "./ball";
 import { comp, player, secondPlayer } from "./users";
 import { canvasWidth } from "./canvas";
 import { hit, playHit } from "./sounds";
-import { resetInGame } from "./update";
+
+function goal(leftUser, rightUser, ball) {
+  if (ball.x - ball.radius < 0) {
+    rightUser.addScore(1);
+    resetBall();
+  } else if (ball.x + ball.radius > canvasWidth) {
+    leftUser.addScore(1);
+    resetBall();
+  }
+}
 
 
 function collision(b, u) {
@@ -21,6 +30,12 @@ function collision(b, u) {
   );
 }
 
+export function resetBall() {
+  ball.resetBallXPosition();
+  ball.resetBallYPosition();
+  ball.changeBallXDirection();
+  ball.setSpeed(5);
+}
 export function onePlayerModeActions() {
   ball.Move();
   comp.move();
@@ -41,13 +56,8 @@ export function onePlayerModeActions() {
     ball.speedAddAfterHit(0.4);
   }
 //--------------------------- GOAL
-  if (ball.x - ball.radius < 0) {
-    comp.addScore(1);
-    resetInGame();
-  } else if (ball.x + ball.radius > canvasWidth) {
-    player.addScore(1);
-    resetInGame();
-  }
+goal(player, comp, ball);
+
 }
 
 // -------------------------TWO PLAYERS--------------
@@ -74,11 +84,6 @@ export function twoPlayersModeActions() {
     ball.speedAddAfterHit(0.4);
   }
 //--------------------------- GOAL
-  if (ball.x - ball.radius < 0) {
-    secondPlayer.addScore(1);
-    resetInGame();
-  } else if (ball.x + ball.radius > canvasWidth) {
-    player.addScore(1);
-    resetInGame();
-  }
+goal(player, secondPlayer, ball);
+
 }

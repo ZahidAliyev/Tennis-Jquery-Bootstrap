@@ -1,7 +1,7 @@
 import {setOnePlayerToFalse, setLocalTwoPlayersFalse} from './inputs';
 import { comp } from "./users";
 import { player, secondPlayer } from "./users";
-import { resetOnePlayerMode } from "./update";
+import { ball } from "./ball";
 
 const winningScore = 3;
 
@@ -27,7 +27,11 @@ export function lvlChange() {
     comp.setComputerLevel(0.5);
   }
 }
-
+function resetOnePlayerModeLvl() {
+  comp.setScore(0);
+  player.setScore(0);
+  lvlChange();
+}
 export function onePlayerWinCondition() {
   if (player.score === winningScore || comp.score === winningScore) {
     // ============ IF PLAYER WON 1 LVL
@@ -35,20 +39,20 @@ export function onePlayerWinCondition() {
       if (lvl_1) {
         lvl_1 = false;
         lvl_2 = true;
-        resetOnePlayerMode();
+        resetOnePlayerModeLvl();
       } else if (lvl_2) {
         // ============= IF PLAYER WON 2 LVL
         lvl_2 = false;
 
         lvl_3 = true;
         
-        resetOnePlayerMode();
+        resetOnePlayerModeLvl();
       } else if (lvl_3) {
         // ============= IF PLAYER WON 2 LVL
 
 
         lvl_1 = true;
-        resetOnePlayerMode();
+        resetOnePlayerModeLvl();
         playerWon = true;
         computerWon = false;
         setOnePlayerToFalse();
@@ -61,7 +65,7 @@ export function onePlayerWinCondition() {
       setOnePlayerToFalse();
       gameOver = true;
     }
-    resetOnePlayerMode();
+    resetOnePlayerModeLvl();
   }
 }
 
@@ -76,7 +80,7 @@ export function twoPlayersWinCondition() {
       leftPlayerWon = false;
     }
 
-    player.score = 0;
+    player.setScore(0);
     secondPlayer.setScore(0);
     setLocalTwoPlayersFalse();
     gameOver = true;
@@ -84,11 +88,17 @@ export function twoPlayersWinCondition() {
 
 }
 
-export function resetAll() {
+export function resetMatchState() {
+  console.log("resetState");
   computerWon = false;
   lvl_2 = false;
   lvl_3 = false;
   leftPlayerWon = false;
   rightPlayerWon = false;
   playerWon = false;
+  arguments[0].setScore(0);
+  arguments[1].setScore(0);
+  arguments[2].setScore(0);
+  comp.setComputerLevel(0.05);
+  ball.setSpeed(5);
 }

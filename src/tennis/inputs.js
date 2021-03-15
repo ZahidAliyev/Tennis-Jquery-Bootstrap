@@ -1,7 +1,8 @@
-import { setGameOver, resetAll, gameOver } from "./winning";
+import { setGameOver, resetMatchState, gameOver } from "./winning";
 import { canvasWidth, canvasHeight } from "./canvas";
-import { player } from "./users";
+import { player, comp, secondPlayer } from "./users";
 import { soundsOn } from "./sounds";
+import { resetBall } from "./actions";
 
 export let menu = true;
 export let pause = false;
@@ -94,7 +95,8 @@ export function menuClick(e) {
     if(gameOver) {
         if (clickCoordinate(e, 10, 12, 3.8, 6, 5, 6)) {
             menu = true;
-            resetAll();
+            resetMatchState(secondPlayer, player, comp);
+
             setGameOver();
         };
     }
@@ -134,6 +136,8 @@ export function menuClick(e) {
             pause = false;
             onePlayer = false;
             localTwoPlayers = false;
+            resetMatchState(secondPlayer, player, comp);
+            resetBall();
         }
     }
 }

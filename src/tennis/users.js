@@ -27,10 +27,10 @@ export const player = {
       this.y = canvasHeight - this.height;
     } else {
       if (leftPlayerUpPressed) {
-        this.y -= 20;
+        this.y -= 15;
       }
       if (leftPlayerDownPressed) {
-        this.y += 20;
+        this.y += 15;
       }
     }
   }
@@ -57,10 +57,10 @@ export const secondPlayer = {
       this.y = canvasHeight - this.height;
     } else {
       if (rightPlayerUpPressed) {
-        this.y -= 20;
+        this.y -= 15;
       }
       if (rightPlayerDownPressed) {
-        this.y += 20;
+        this.y += 15;
       }
     }
   }

@@ -1,25 +1,10 @@
 import {pause, onePlayer, localTwoPlayers} from './inputs';
 import { ball } from "./ball";
-import {comp, player} from './users';
 import { onePlayerModeActions, twoPlayersModeActions } from "./actions";
-import { onePlayerWinCondition,twoPlayersWinCondition, lvlChange } from "./winning";
+import { onePlayerWinCondition,twoPlayersWinCondition } from "./winning";
 import { musicTurnOnOff, soundsTurnOnOff } from "./sounds";
 
 ball.setBallDirectionToRandom();
-
-export function resetInGame() {
-  ball.resetBallXPosition();
-  ball.resetBallYPosition();
-  ball.changeBallXDirection();
-  ball.setSpeed(5);
-}
-export function resetOnePlayerMode() {
-  comp.setScore(0);
-  player.setScore(0);
-  lvlChange();
-}
-
-
 
 export function update() {
   //-----------------------if one player True. 1 PLAYER MODE
